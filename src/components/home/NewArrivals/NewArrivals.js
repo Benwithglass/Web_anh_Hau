@@ -55,7 +55,7 @@ const NewArrivals = () => {
     ],
   };
   return (
-    <div className="w-full pb-16">
+    <div className="w-full pb-16 pt-16">
       <Heading heading="Pallet Gỗ" />
       <Slider {...settings}>
         {/* <div className="px-2">
@@ -117,7 +117,7 @@ const NewArrivals = () => {
           <Product
             _id="100006"
             img={pallet_1}
-            productName="Pallet Gỗ Đồng Nai"
+            productName="Pallet Gỗ"
             price="Liên hệ"
             color="Mixed"
             badge={false}
@@ -128,7 +128,7 @@ const NewArrivals = () => {
           <Product
             _id="100007"
             img={pallet_2}
-            productName="Pallet Gỗ Trảng Bom"
+            productName="Pallet Gỗ"
             price="Liên hệ"
             color="Mixed"
             badge={false}
@@ -139,7 +139,7 @@ const NewArrivals = () => {
           <Product
             _id="100008"
             img={pallet_3}
-            productName="Pallet Gỗ Hố Nai"
+            productName="Pallet Gỗ"
             price="Liên hệ"
             color="Mixed"
             badge={false}
@@ -150,7 +150,7 @@ const NewArrivals = () => {
           <Product
             _id="100008"
             img={pallet_4}
-            productName="Pallet Gỗ Duy Minh"
+            productName="Pallet Gỗ"
             price="Liên hệ"
             color="Mixed"
             badge={false}
@@ -161,7 +161,7 @@ const NewArrivals = () => {
           <Product
             _id="100009"
             img={pallet_5}
-            productName="Pallet Thùng 5"
+            productName="Pallet Thùng"
             price="Liên hệ"
             color="Mixed"
             badge={false}

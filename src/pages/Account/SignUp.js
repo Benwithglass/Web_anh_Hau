@@ -11,8 +11,8 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
-  const [country, setCountry] = useState("");
-  const [zip, setZip] = useState("");
+  // const [country, setCountry] = useState("");
+  // const [zip, setZip] = useState("");
   const [checked, setChecked] = useState(false);
   // ============= Initial State End here ===============
   // ============= Error Msg Start here =================
@@ -22,8 +22,8 @@ const SignUp = () => {
   const [errPassword, setErrPassword] = useState("");
   const [errAddress, setErrAddress] = useState("");
   const [errCity, setErrCity] = useState("");
-  const [errCountry, setErrCountry] = useState("");
-  const [errZip, setErrZip] = useState("");
+  // const [errCountry, setErrCountry] = useState("");
+  // const [errZip, setErrZip] = useState("");
   // ============= Error Msg End here ===================
   const [successMsg, setSuccessMsg] = useState("");
   // ============= Event Handler Start here =============
@@ -51,14 +51,14 @@ const SignUp = () => {
     setCity(e.target.value);
     setErrCity("");
   };
-  const handleCountry = (e) => {
-    setCountry(e.target.value);
-    setErrCountry("");
-  };
-  const handleZip = (e) => {
-    setZip(e.target.value);
-    setErrZip("");
-  };
+  // const handleCountry = (e) => {
+  //   setCountry(e.target.value);
+  //   setErrCountry("");
+  // };
+  // const handleZip = (e) => {
+  //   setZip(e.target.value);
+  //   setErrZip("");
+  // };
   // ============= Event Handler End here ===============
   // ================= Email Validation start here =============
   const EmailValidation = (email) => {
@@ -72,7 +72,7 @@ const SignUp = () => {
     e.preventDefault();
     if (checked) {
       if (!clientName) {
-        setErrClientName("Enter your name");
+        setErrClientName("Hãy nhập lại Họ và Tên");
       }
       if (!email) {
         setErrEmail("Enter your email");
@@ -97,12 +97,12 @@ const SignUp = () => {
       if (!city) {
         setErrCity("Enter your city name");
       }
-      if (!country) {
-        setErrCountry("Enter the country you are residing");
-      }
-      if (!zip) {
-        setErrZip("Enter the zip code of your area");
-      }
+      // if (!country) {
+      //   setErrCountry("Enter the country you are residing");
+      // }
+      // if (!zip) {
+      //   setErrZip("Enter the zip code of your area");
+      // }
       // ============== Getting the value ==============
       if (
         clientName &&
@@ -111,9 +111,9 @@ const SignUp = () => {
         password &&
         password.length >= 6 &&
         address &&
-        city &&
-        country &&
-        zip
+        city
+        // country &&
+        // zip
       ) {
         setSuccessMsg(
           `Hello dear ${clientName}, Welcome you to OREBI Admin panel. We received your Sign up request. We are processing to validate your access. Till then stay connected and additional assistance will be sent to you by your mail at ${email}`
@@ -124,8 +124,8 @@ const SignUp = () => {
         setPassword("");
         setAddress("");
         setCity("");
-        setCountry("");
-        setZip("");
+        // setCountry("");
+        // setZip("");
       }
     }
   };
@@ -214,22 +214,22 @@ const SignUp = () => {
           </div>
         ) : (
           <form className="w-full lgl:w-[500px] h-screen flex items-center justify-center">
-            <div className="px-6 py-4 w-full h-[96%] flex flex-col justify-start overflow-y-scroll scrollbar-thin scrollbar-thumb-primeColor">
-              <h1 className="font-titleFont underline underline-offset-4 decoration-[1px] font-semibold text-2xl mdl:text-3xl mb-4">
-                Create your account
+            <div className="px-6 py-28 w-full h-[96%] flex flex-col justify-start overflow-y-scroll scrollbar-thin scrollbar-thumb-primeColor">
+              <h1 className="font-titleFont underline underline-offset-4 decoration-[1px] font-semibold text-2xl mdl:text-3xl mb-4 text-center">
+                Tạo Tài Khoản
               </h1>
               <div className="flex flex-col gap-3">
                 {/* client name */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Full Name
+                    Họ và Tên
                   </p>
                   <input
                     onChange={handleName}
                     value={clientName}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="eg. John Doe"
+                    placeholder="eg. Phạm Tiến Thành"
                   />
                   {errClientName && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -241,14 +241,14 @@ const SignUp = () => {
                 {/* Email */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Work Email
+                    Email
                   </p>
                   <input
                     onChange={handleEmail}
                     value={email}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="email"
-                    placeholder="john@workemail.com"
+                    placeholder="thanhpham@gmail.com"
                   />
                   {errEmail && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -260,14 +260,14 @@ const SignUp = () => {
                 {/* Phone Number */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Phone Number
+                    Số điện thoại
                   </p>
                   <input
                     onChange={handlePhone}
                     value={phone}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="008801234567891"
+                    placeholder="0924-586-142"
                   />
                   {errPhone && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -279,7 +279,7 @@ const SignUp = () => {
                 {/* Password */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Password
+                    Mật Khẩu
                   </p>
                   <input
                     onChange={handlePassword}
@@ -298,14 +298,14 @@ const SignUp = () => {
                 {/* Address */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Address
+                    Địa chỉ công ty
                   </p>
                   <input
                     onChange={handleAddress}
                     value={address}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="road-001, house-115, example area"
+                    placeholder="281 Nguyễn Tri Phương, P.15, Q. 10"
                   />
                   {errAddress && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -317,14 +317,14 @@ const SignUp = () => {
                 {/* City */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
-                    City
+                    Thành Phố
                   </p>
                   <input
                     onChange={handleCity}
                     value={city}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="Your city"
+                    placeholder="Thành Phố Hồ Chí Minh"
                   />
                   {errCity && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -334,7 +334,7 @@ const SignUp = () => {
                   )}
                 </div>
                 {/* Country */}
-                <div className="flex flex-col gap-.5">
+                {/* <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
                     Country
                   </p>
@@ -351,9 +351,9 @@ const SignUp = () => {
                       {errCountry}
                     </p>
                   )}
-                </div>
+                </div> */}
                 {/* Zip code */}
-                <div className="flex flex-col gap-.5">
+                {/* <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
                     Zip/Postal code
                   </p>
@@ -370,7 +370,7 @@ const SignUp = () => {
                       {errZip}
                     </p>
                   )}
-                </div>
+                </div> */}
                 {/* Checkbox */}
                 <div className="flex items-start mdl:items-center gap-2">
                   <input
@@ -379,9 +379,9 @@ const SignUp = () => {
                     type="checkbox"
                   />
                   <p className="text-sm text-primeColor">
-                    I agree to the OREBI{" "}
-                    <span className="text-blue-500">Terms of Service </span>and{" "}
-                    <span className="text-blue-500">Privacy Policy</span>.
+                    Tôi đồng ý với những điều trên{" "}
+                    {/* <span className="text-blue-500">Terms of Service </span>and{" "}
+                    <span className="text-blue-500">Privacy Policy</span>. */}
                   </p>
                 </div>
                 <button
@@ -392,16 +392,16 @@ const SignUp = () => {
                       : "bg-gray-500 hover:bg-gray-500 hover:text-gray-200 cursor-none"
                   } w-full text-gray-200 text-base font-medium h-10 rounded-md hover:text-white duration-300`}
                 >
-                  Create Account
+                  Tạo Tài Khoản
                 </button>
-                <p className="text-sm text-center font-titleFont font-medium">
-                  Don't have an Account?{" "}
+                {/* <p className="text-sm text-center font-titleFont font-medium">
+                  Bạn chưa có{" "}
                   <Link to="/signin">
                     <span className="hover:text-blue-600 duration-300">
                       Sign in
                     </span>
                   </Link>
-                </p>
+                </p> */}
               </div>
             </div>
           </form>

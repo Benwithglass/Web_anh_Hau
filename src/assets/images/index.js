@@ -31,6 +31,19 @@ import bestSellerTwo from "./products/bestSeller/bestSellerTwo.webp";
 import bestSellerThree from "./products/bestSeller/bestSellerThree.webp";
 import bestSellerFour from "./products/bestSeller/bestSellerFour.webp";
 
+// Dây Đai
+import daydai_1 from "./products/dayDai/daydai_1.webp";
+import daydai_2 from "./products/dayDai/daydai_2.webp";
+import daydai_3 from "./products/dayDai/daydai_3.webp";
+import daydai_4 from "./products/dayDai/daydai_4.webp";
+
+// Màng PE
+import mangPE_1 from "./products/mangPE/mangPE_1.webp";
+import mangPE_2 from "./products/mangPE/mangPE_2.webp";
+import mangPE_3 from "./products/mangPE/mangPE_3.webp";
+import mangPE_4 from "./products/mangPE/mangPE_4.webp";
+import mangPE_5 from "./products/mangPE/mangPE_5.webp";
+
 // Special Offers
 import spfOne from "./products/specialOffer/spfOne.webp";
 import spfTwo from "./products/specialOffer/spfTwo.webp";
@@ -69,11 +82,25 @@ export {
   pallet_6,
   pallet_7,
   pallet_8,
+
   // Best Sellers
   bestSellerOne,
   bestSellerTwo,
   bestSellerThree,
   bestSellerFour,
+
+  // Dây Đai
+  daydai_1,
+  daydai_2,
+  daydai_3,
+  daydai_4,
+
+  // Màng PE
+  mangPE_1,
+  mangPE_2,
+  mangPE_3,
+  mangPE_4,
+  mangPE_5,
 
   // Sprcial Offers
   spfOne,
