@@ -52,9 +52,14 @@ import spfFour from "./products/specialOffer/spfFour.webp";
 
 // Year Product
 import productOfTheYear from "./products/productOfTheYear.webp";
+
+// hình nền SignUp
+import hinh_nen_sign_up from "../images/hinh_nen_sign_up.webp";
+
 // ============== Products End here ======================
 import paymentCard from "./payment.png";
 import emptyCart from "../images/emptyCart.png";
+
 
 export {
   logo,
@@ -110,6 +115,9 @@ export {
 
   // Year Product
   productOfTheYear,
+
+  // Hình nền SignUp
+  hinh_nen_sign_up,
   // ===================== Products End here ==============
   paymentCard,
   emptyCart,

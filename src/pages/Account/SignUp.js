@@ -1,412 +1,286 @@
-import React, { useState } from "react";
-import { BsCheckCircleFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
-import { logoLight } from "../../assets/images";
+import "./SignUp.css";
+import {toast} from "react-toastify";
+import { useState } from "react";
+import {useNavigate} from "react-router-dom";
 
 const SignUp = () => {
-  // ============= Initial State Start here =============
-  const [clientName, setClientName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [password, setPassword] = useState("");
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  // const [country, setCountry] = useState("");
-  // const [zip, setZip] = useState("");
-  const [checked, setChecked] = useState(false);
-  // ============= Initial State End here ===============
-  // ============= Error Msg Start here =================
-  const [errClientName, setErrClientName] = useState("");
-  const [errEmail, setErrEmail] = useState("");
-  const [errPhone, setErrPhone] = useState("");
-  const [errPassword, setErrPassword] = useState("");
-  const [errAddress, setErrAddress] = useState("");
-  const [errCity, setErrCity] = useState("");
-  // const [errCountry, setErrCountry] = useState("");
-  // const [errZip, setErrZip] = useState("");
-  // ============= Error Msg End here ===================
-  const [successMsg, setSuccessMsg] = useState("");
-  // ============= Event Handler Start here =============
-  const handleName = (e) => {
-    setClientName(e.target.value);
-    setErrClientName("");
-  };
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-    setErrEmail("");
-  };
-  const handlePhone = (e) => {
-    setPhone(e.target.value);
-    setErrPhone("");
-  };
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-    setErrPassword("");
-  };
-  const handleAddress = (e) => {
-    setAddress(e.target.value);
-    setErrAddress("");
-  };
-  const handleCity = (e) => {
-    setCity(e.target.value);
-    setErrCity("");
-  };
-  // const handleCountry = (e) => {
-  //   setCountry(e.target.value);
-  //   setErrCountry("");
-  // };
-  // const handleZip = (e) => {
-  //   setZip(e.target.value);
-  //   setErrZip("");
-  // };
-  // ============= Event Handler End here ===============
-  // ================= Email Validation start here =============
-  const EmailValidation = (email) => {
-    return String(email)
-      .toLowerCase()
-      .match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
-  };
-  // ================= Email Validation End here ===============
 
-  const handleSignUp = (e) => {
-    e.preventDefault();
-    if (checked) {
-      if (!clientName) {
-        setErrClientName("Hãy nhập lại Họ và Tên");
-      }
-      if (!email) {
-        setErrEmail("Enter your email");
-      } else {
-        if (!EmailValidation(email)) {
-          setErrEmail("Enter a Valid email");
-        }
-      }
-      if (!phone) {
-        setErrPhone("Enter your phone number");
-      }
-      if (!password) {
-        setErrPassword("Create a password");
-      } else {
-        if (password.length < 6) {
-          setErrPassword("Passwords must be at least 6 characters");
-        }
-      }
-      if (!address) {
-        setErrAddress("Enter your address");
-      }
-      if (!city) {
-        setErrCity("Enter your city name");
-      }
-      // if (!country) {
-      //   setErrCountry("Enter the country you are residing");
-      // }
-      // if (!zip) {
-      //   setErrZip("Enter the zip code of your area");
-      // }
-      // ============== Getting the value ==============
-      if (
-        clientName &&
-        email &&
-        EmailValidation(email) &&
-        password &&
-        password.length >= 6 &&
-        address &&
-        city
-        // country &&
-        // zip
-      ) {
-        setSuccessMsg(
-          `Hello dear ${clientName}, Welcome you to OREBI Admin panel. We received your Sign up request. We are processing to validate your access. Till then stay connected and additional assistance will be sent to you by your mail at ${email}`
-        );
-        setClientName("");
-        setEmail("");
-        setPhone("");
-        setPassword("");
-        setAddress("");
-        setCity("");
-        // setCountry("");
-        // setZip("");
-      }
-    }
+  const [id, idchange] = useState("");
+  const [name, namechange] = useState("");
+  const [email, emailchange] = useState("");
+  const [phone, phonechange] = useState("");
+  const [password, passwordchange] = useState("");
+  const [address, addresschange] = useState("");
+
+  const [isPasswordHidden, setPasswordHidden] = useState(false);
+
+  const navigate = useNavigate();
+
+  // Đặt điều kiện validate
+  const validateEmail = (email) => {
+    // email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // test email
+    return emailRegex.test(email);
+  }
+
+  const emailToValidate = email;
+
+  const validateFullname = (name) => {
+    // 
+    const minLength = 3;
+    const maxLength = 16; 
+    const allowedCharacters = /^[\p{L} .'-]+$/u;
+    // 
+    return (
+      name.length >= minLength &&
+      name.length <= maxLength && 
+      allowedCharacters.test(name)
+    );
   };
+
+  const nameToValidate = name;
+
+  const validatePassword = (password) => {
+    const minLength = 8;
+    return (
+      password.length >= minLength
+    );
+  };
+
+  const passwordToValidate = password;
+
+  // End đặt điều kiện validate
+
+  const isValidate = () => {
+    let isproceed = true;
+    let errormessage = '';
+    if (name === null || name === ''){
+      isproceed = false;
+      errormessage += 'Bạn đã bỏ sót phần Họ và Tên.';
+    }
+    if (!validateFullname(nameToValidate)) {
+      isproceed = false;
+      errormessage += 'Họ và Tên không hợp lệ.'
+    }
+    if (phone === null || phone === ''){
+      isproceed = false;
+      errormessage += ' Bạn đã bỏ sót phần Số Điện Thoại.';
+    }
+    if (phone.length < 10) {
+      isproceed = false;
+      errormessage += ' Số điện thoại không hợp lệ.'
+    }
+    if (!validateEmail(emailToValidate) || email === null || email === '') {
+      isproceed = false;
+      errormessage += ' Email không hợp lệ. Vui lòng nhập lại email.'
+    }
+    if (!validatePassword(passwordToValidate)) {
+      isproceed = false;
+      errormessage += ' Xin nhập password từ 8 ký tự trở lên.';
+    }
+    if (!isproceed){
+      toast.warning(errormessage);
+    }
+    return isproceed;
+  }
+
+  const handleSubmit = event => {
+
+    // stop page reload when submit
+    event.preventDefault();
+
+    let regobj =  {id, name, email, phone, password, address};
+    // console.log (regobj);
+    // console.log (regobj.phone.length);
+
+    // Validation
+    if(isValidate()){
+      fetch("http://localhost:3004/user",{
+          method: "POST",
+          headers: {'content-type':'application/json'},
+          body: JSON.stringify(regobj)
+      }).then((res)=>{
+          toast.success('Đăng ký thành công!')
+          navigate('/signin');
+      }).catch((err)=>{
+          toast.error('Thất bại :' + err.message)
+      });
+    }
+  }
+
   return (
-    <div className="w-full h-screen flex items-center justify-start">
-      <div className="w-1/2 hidden lgl:inline-flex h-full text-white">
-        <div className="w-[450px] h-full bg-primeColor px-10 flex flex-col gap-6 justify-center">
-          <Link to="/">
-            <img src={logoLight} alt="logoImg" className="w-28" />
-          </Link>
-          <div className="flex flex-col gap-1 -mt-1">
-            <h1 className="font-titleFont text-xl font-medium">
-              Get started for free
-            </h1>
-            <p className="text-base">Create your account to access more</p>
-          </div>
-          <div className="w-[300px] flex items-start gap-3">
-            <span className="text-green-500 mt-1">
-              <BsCheckCircleFill />
-            </span>
-            <p className="text-base text-gray-300">
-              <span className="text-white font-semibold font-titleFont">
-                Get started fast with OREBI
-              </span>
-              <br />
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab omnis
-              nisi dolor recusandae consectetur!
-            </p>
-          </div>
-          <div className="w-[300px] flex items-start gap-3">
-            <span className="text-green-500 mt-1">
-              <BsCheckCircleFill />
-            </span>
-            <p className="text-base text-gray-300">
-              <span className="text-white font-semibold font-titleFont">
-                Access all OREBI services
-              </span>
-              <br />
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab omnis
-              nisi dolor recusandae consectetur!
-            </p>
-          </div>
-          <div className="w-[300px] flex items-start gap-3">
-            <span className="text-green-500 mt-1">
-              <BsCheckCircleFill />
-            </span>
-            <p className="text-base text-gray-300">
-              <span className="text-white font-semibold font-titleFont">
-                Trusted by online Shoppers
-              </span>
-              <br />
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab omnis
-              nisi dolor recusandae consectetur!
-            </p>
-          </div>
-          <div className="flex items-center justify-between mt-10">
-            <p className="text-sm font-titleFont font-semibold text-gray-300 hover:text-white cursor-pointer duration-300">
-              © OREBI
-            </p>
-            <p className="text-sm font-titleFont font-semibold text-gray-300 hover:text-white cursor-pointer duration-300">
-              Terms
-            </p>
-            <p className="text-sm font-titleFont font-semibold text-gray-300 hover:text-white cursor-pointer duration-300">
-              Privacy
-            </p>
-            <p className="text-sm font-titleFont font-semibold text-gray-300 hover:text-white cursor-pointer duration-300">
-              Security
-            </p>
-          </div>
-        </div>
+    <div className="signup w-full h-screen">
+      <div className="card-header text-center">
+        <h1>Tạo tài khoản</h1>
       </div>
-      <div className="w-full lgl:w-[500px] h-full flex flex-col justify-center">
-        {successMsg ? (
-          <div className="w-[500px]">
-            <p className="w-full px-4 py-10 text-green-500 font-medium font-titleFont">
-              {successMsg}
-            </p>
-            <Link to="/signin">
-              <button
-                className="w-full h-10 bg-primeColor rounded-md text-gray-200 text-base font-titleFont font-semibold 
-            tracking-wide hover:bg-black hover:text-white duration-300"
-              >
-                Sign in
-              </button>
-            </Link>
-          </div>
-        ) : (
-          <form className="w-full lgl:w-[500px] h-screen flex items-center justify-center">
-            <div className="px-6 py-28 w-full h-[96%] flex flex-col justify-start overflow-y-scroll scrollbar-thin scrollbar-thumb-primeColor">
-              <h1 className="font-titleFont underline underline-offset-4 decoration-[1px] font-semibold text-2xl mdl:text-3xl mb-4 text-center">
-                Tạo Tài Khoản
-              </h1>
-              <div className="flex flex-col gap-3">
-                {/* client name */}
-                <div className="flex flex-col gap-.5">
-                  <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Họ và Tên
-                  </p>
-                  <input
-                    onChange={handleName}
-                    value={clientName}
-                    className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
-                    type="text"
-                    placeholder="eg. Phạm Tiến Thành"
-                  />
-                  {errClientName && (
-                    <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                      <span className="font-bold italic mr-1">!</span>
-                      {errClientName}
-                    </p>
-                  )}
-                </div>
-                {/* Email */}
-                <div className="flex flex-col gap-.5">
-                  <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Email
-                  </p>
-                  <input
-                    onChange={handleEmail}
-                    value={email}
-                    className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
-                    type="email"
-                    placeholder="thanhpham@gmail.com"
-                  />
-                  {errEmail && (
-                    <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                      <span className="font-bold italic mr-1">!</span>
-                      {errEmail}
-                    </p>
-                  )}
-                </div>
-                {/* Phone Number */}
-                <div className="flex flex-col gap-.5">
-                  <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Số điện thoại
-                  </p>
-                  <input
-                    onChange={handlePhone}
-                    value={phone}
-                    className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
-                    type="text"
-                    placeholder="0924-586-142"
-                  />
-                  {errPhone && (
-                    <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                      <span className="font-bold italic mr-1">!</span>
-                      {errPhone}
-                    </p>
-                  )}
-                </div>
-                {/* Password */}
-                <div className="flex flex-col gap-.5">
-                  <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Mật Khẩu
-                  </p>
-                  <input
-                    onChange={handlePassword}
-                    value={password}
-                    className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
-                    type="password"
-                    placeholder="Create password"
-                  />
-                  {errPassword && (
-                    <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                      <span className="font-bold italic mr-1">!</span>
-                      {errPassword}
-                    </p>
-                  )}
-                </div>
-                {/* Address */}
-                <div className="flex flex-col gap-.5">
-                  <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Địa chỉ công ty
-                  </p>
-                  <input
-                    onChange={handleAddress}
-                    value={address}
-                    className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
-                    type="text"
-                    placeholder="281 Nguyễn Tri Phương, P.15, Q. 10"
-                  />
-                  {errAddress && (
-                    <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                      <span className="font-bold italic mr-1">!</span>
-                      {errAddress}
-                    </p>
-                  )}
-                </div>
-                {/* City */}
-                <div className="flex flex-col gap-.5">
-                  <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Thành Phố
-                  </p>
-                  <input
-                    onChange={handleCity}
-                    value={city}
-                    className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
-                    type="text"
-                    placeholder="Thành Phố Hồ Chí Minh"
-                  />
-                  {errCity && (
-                    <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                      <span className="font-bold italic mr-1">!</span>
-                      {errCity}
-                    </p>
-                  )}
-                </div>
-                {/* Country */}
-                {/* <div className="flex flex-col gap-.5">
-                  <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Country
-                  </p>
-                  <input
-                    onChange={handleCountry}
-                    value={country}
-                    className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
-                    type="text"
-                    placeholder="Your country"
-                  />
-                  {errCountry && (
-                    <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                      <span className="font-bold italic mr-1">!</span>
-                      {errCountry}
-                    </p>
-                  )}
-                </div> */}
-                {/* Zip code */}
-                {/* <div className="flex flex-col gap-.5">
-                  <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Zip/Postal code
-                  </p>
-                  <input
-                    onChange={handleZip}
-                    value={zip}
-                    className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
-                    type="text"
-                    placeholder="Your country"
-                  />
-                  {errZip && (
-                    <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                      <span className="font-bold italic mr-1">!</span>
-                      {errZip}
-                    </p>
-                  )}
-                </div> */}
-                {/* Checkbox */}
-                <div className="flex items-start mdl:items-center gap-2">
-                  <input
-                    onChange={() => setChecked(!checked)}
-                    className="w-4 h-4 mt-1 mdl:mt-0 cursor-pointer"
-                    type="checkbox"
-                  />
-                  <p className="text-sm text-primeColor">
-                    Tôi đồng ý với những điều trên{" "}
-                    {/* <span className="text-blue-500">Terms of Service </span>and{" "}
-                    <span className="text-blue-500">Privacy Policy</span>. */}
-                  </p>
-                </div>
-                <button
-                  onClick={handleSignUp}
-                  className={`${
-                    checked
-                      ? "bg-primeColor hover:bg-black hover:text-white cursor-pointer"
-                      : "bg-gray-500 hover:bg-gray-500 hover:text-gray-200 cursor-none"
-                  } w-full text-gray-200 text-base font-medium h-10 rounded-md hover:text-white duration-300`}
+      <form className="card" onSubmit={handleSubmit}>
+        <div className="card-content">
+          <div className="card-body">
+            <div className="left mr-9">
+              {/* Họ và Tên */}
+              <div className="form-group mb-3">
+                <label
+                  for="username"
+                  className="block py-2 text-gray-600 font-bold"
                 >
-                  Tạo Tài Khoản
-                </button>
-                {/* <p className="text-sm text-center font-titleFont font-medium">
-                  Bạn chưa có{" "}
-                  <Link to="/signin">
-                    <span className="hover:text-blue-600 duration-300">
-                      Sign in
-                    </span>
-                  </Link>
-                </p> */}
+                  Họ và Tên <span className="msgerr"> * </span>
+                </label>
+                <div className="relative max-w-xs text-gray-500">
+                  <input
+                    value={name}
+                    onChange={event => namechange(event.target.value)}
+                    type="text"
+                    placeholder="Phạm Tiến Đạt"
+                    id="username"
+                    className=" w-full pr-12 pl-3 py-2 text-gray-500 bg-white outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                  />
+                </div>
+              </div>
+
+              {/* Điện Thoại */}
+              <div className="form-group mb-3">
+                <label className="text-gray-600 font-bold">
+                  Số Điện Thoại <span className="msgerr"> * </span>
+                </label>
+                <div className="relative mt-2 max-w-xs text-gray-500">
+                  <div className="absolute inset-y-0 left-3 my-auto h-6 flex items-center border-r pr-2">
+                    <select className="text-sm bg-transparent outline-none rounded-lg h-full">
+                      <option>VN</option>
+                      {/* <option>ES</option>
+                    <option>MR</option> */}
+                    </select>
+                  </div>
+                  <input
+                    value={phone}
+                    onChange={event => phonechange(event.target.value)}
+                    type="number"
+                    placeholder="0934 123 533"
+                    className="w-full pl-[4.5rem] pr-3 py-2 appearance-none bg-white outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                  />
+                </div>
               </div>
             </div>
-          </form>
-        )}
-      </div>
+
+            <div className="right">
+              {/* Email */}
+              <div className="form-group mb-3">
+                <label className="text-gray-600 font-bold">
+                  Email <span className="msgerr"> * </span>
+                </label>
+                <div className="relative max-w-xs">
+                  <svg
+                    className="w-6 h-6 text-gray-400 absolute left-3 inset-y-0 my-auto"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+                    />
+                  </svg>
+                  <input
+                    value={email}
+                    onChange={event => emailchange(event.target.value)}
+                    type="text"
+                    placeholder="user@gmail.com"
+                    className="w-full pl-12 pr-3 py-2 text-gray-500 bg-white outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                  />
+                </div>
+              </div>
+
+              {/* Mật Khẩu */}
+              <div className="form-group mb-3">
+                <label className="text-gray-600 font-bold">
+                  Mật Khẩu <span className="msgerr"> * </span>
+                </label>
+                <div className="relative max-w-xs mt-2" >
+                  <button
+                    
+                    className="text-gray-400 absolute right-3 inset-y-0 my-auto active:text-gray-600"
+                    onClick={() => setPasswordHidden(!isPasswordHidden)}
+                  >
+                    {isPasswordHidden ? (
+                      <svg
+                        className="w-6 h-6"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+                        />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                      </svg>
+                    ) : (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="w-6 h-6"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"
+                        />
+                      </svg>
+                    )}
+                  </button>
+                  <input
+                    value={password}
+                    onChange={event => passwordchange(event.target.value)}
+                    type={isPasswordHidden ? "password" : "text"}
+                    placeholder="******"
+                    className="w-full pr-12 pl-3 py-2 text-gray-500 bg-white outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* địa chỉ */}
+          <div className="form-group mb-3">
+            <label
+              for="address"
+              className="block py-2 text-gray-600 font-bold"
+            >
+              Địa Chỉ
+            </label>
+            <div className="relative text-gray-500">
+              <input
+                value={address}
+                onChange={event => addresschange(event.target.value)}
+                type="text"
+                placeholder="118 Lê Cao Lãng, Phú Thạnh, Tân Phú"
+                id="address"
+                className=" w-full pr-12 pl-3 py-2 text-gray-500 bg-white outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+              />
+            </div>
+          </div>
+          <div className="card-footer">
+            <button
+              type="submit"
+              className="bg-yellow-500 text-black hover:bg-black hover:text-yellow-500 transition-all duration-300 font-bold"
+            >
+              Đăng Ký
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
   );
 };

@@ -22,6 +22,7 @@ import Offer from "./pages/Offer/Offer";
 import Payment from "./pages/payment/Payment";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Shop from "./pages/Shop/Shop";
+import {ToastContainer} from "react-toastify";
 
 const Layout = () => {
   return (
@@ -38,6 +39,7 @@ const Layout = () => {
 };
 const router = createBrowserRouter(
   createRoutesFromElements(
+    
     <Route>
       <Route path="/" element={<Layout />}>
         {/* ==================== Header Navlink Start here =================== */}
@@ -61,6 +63,7 @@ const router = createBrowserRouter(
 function App() {
   return (
     <div className="font-bodyFont">
+      <ToastContainer theme="colored"></ToastContainer>
       <RouterProvider router={router} />
     </div>
   );
