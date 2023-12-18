@@ -55,6 +55,7 @@ const SignUp = () => {
   const isValidate = () => {
     let isproceed = true;
     let errormessage = '';
+    // Họ và Tên
     if (name === null || name === ''){
       isproceed = false;
       errormessage += 'Bạn đã bỏ sót phần Họ và Tên.';
@@ -63,6 +64,7 @@ const SignUp = () => {
       isproceed = false;
       errormessage += 'Họ và Tên không hợp lệ.'
     }
+    // Số điện thoại
     if (phone === null || phone === ''){
       isproceed = false;
       errormessage += ' Bạn đã bỏ sót phần Số Điện Thoại.';
@@ -71,10 +73,12 @@ const SignUp = () => {
       isproceed = false;
       errormessage += ' Số điện thoại không hợp lệ.'
     }
+    // Email
     if (!validateEmail(emailToValidate) || email === null || email === '') {
       isproceed = false;
       errormessage += ' Email không hợp lệ. Vui lòng nhập lại email.'
     }
+    // Password
     if (!validatePassword(passwordToValidate)) {
       isproceed = false;
       errormessage += ' Xin nhập password từ 8 ký tự trở lên.';

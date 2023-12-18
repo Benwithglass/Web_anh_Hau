@@ -56,6 +56,9 @@ import productOfTheYear from "./products/productOfTheYear.webp";
 // hình nền SignUp
 import hinh_nen_sign_up from "../images/hinh_nen_sign_up.webp";
 
+// hình nền SignIn
+import hinh_nen_sign_in from "../images/hinh_nen_sign_in.webp";
+
 // ============== Products End here ======================
 import paymentCard from "./payment.png";
 import emptyCart from "../images/emptyCart.png";
@@ -118,6 +121,9 @@ export {
 
   // Hình nền SignUp
   hinh_nen_sign_up,
+
+  // hình nền SignIn
+  hinh_nen_sign_in,
   // ===================== Products End here ==============
   paymentCard,
   emptyCart,

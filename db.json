@@ -5,80 +5,19 @@
       "name": "Phạm Tiến Đạt",
       "email": "tiendatpham2412@gmail.com",
       "phone": "0934123524",
-      "password": "123456",
+      "password": "12121212",
       "address": "181 Lê Cao Lãng, Phú Thạnh, Tân Phú"
     },
     {
       "id": 2,
-      "name": "Phạm Tiến Dũng",
-      "email": "tiendung3999@gmail.com",
-      "phone": "0903742672",
-      "password": "258963",
-      "address": "181 Lê Cao Lãng, Phú Thạnh, Tân Phú"
-    },
-    {
-      "id": 3,
       "name": "Nguyễn Thị Xinh",
       "email": "xinhnguyen1961@gmail.com",
-      "phone": "0906767298",
-      "password": "123456",
-      "address": "181 Lê Cao Lãng, Phú Thạnh, Tân Phú"
-    },
-    {
-      "id": 4,
-      "name": "Trương Kim Chi",
-      "email": "truongkimchi@gmail.com",
-      "phone": "0934123456",
-      "password": "222222",
-      "address": "181 Lê Cao Lãng, Phú Thạnh, Tân Phú"
-    },
-    {
-      "id": 5,
-      "name": "",
-      "email": "",
-      "phone": "",
-      "password": "",
-      "address": ""
-    },
-    {
-      "id": 6,
-      "name": "testuser",
-      "email": "testuser@gmail.com",
-      "phone": "0953132564",
-      "password": "888888",
+      "phone": "0906767294",
+      "password": "19611994",
       "address": "hehehehe"
-    },
-    {
-      "id": 7,
-      "name": "",
-      "email": "",
-      "phone": "",
-      "password": "",
-      "address": ""
-    },
-    {
-      "id": 8,
-      "name": "",
-      "email": "",
-      "phone": "",
-      "password": "",
-      "address": ""
-    },
-    {
-      "id": 9,
-      "name": "Tiên",
-      "email": "tien@gmail.com",
-      "phone": "0123456789",
-      "password": "111111",
-      "address": ""
-    },
-    {
-      "id": 10,
-      "name": "Phạm Tiến Đạt",
-      "email": "tiendatpham2412@gmail.com",
-      "phone": "0934123524",
-      "password": "12121212",
-      "address": ""
     }
+  ],
+  "product": [
+    
   ]
 }

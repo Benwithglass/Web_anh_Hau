@@ -1,0 +1,57 @@
+@media only screen and (min-width:1024px) {
+    .signin {
+        background-image: url(../../assets/images/hinh_nen_sign_in.webp);
+        height: 100vh;
+        width: 100vw;
+        background-size: cover;
+        background-position: bottom center;
+        background-repeat: no-repeat;
+    }
+    
+    .left .title h1:nth-child(1){
+        font-weight: 200;
+        /* color: black; */
+    }
+
+    .left .title h1:nth-child(2){
+        font-weight: 900;
+        /* color: black; */
+    }
+
+    .card {
+        display: flex;
+        justify-content: center;
+    }
+
+    .card-content {
+        margin-top: 50px;
+        max-width: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none !important;
+    }
+
+    /* .card-content .card-body {
+        width: 100%;
+    } */
+
+    .card-body .left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card-body .left input {
+        width: 324px;
+    }
+
+
+    .card-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
