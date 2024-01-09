@@ -15,9 +15,15 @@
       "phone": "0906767294",
       "password": "19611994",
       "address": "hehehehe"
+    },
+    {
+      "id": "",
+      "name": "Minh Long Phat",
+      "email": "minhlongphat2020@gmail.com",
+      "phone": "0988329000",
+      "password": "minhlongphat2020",
+      "address": "72 N14, Thong Nhat, Bien Hoa, Dong Nai"
     }
   ],
-  "product": [
-    
-  ]
+  "product": []
 }

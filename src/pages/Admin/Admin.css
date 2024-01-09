@@ -1,0 +1,53 @@
+.admin {
+    background-color: rgba(47, 79, 79, 0.534);
+    height: 100dvh;
+}
+
+.content .nav {
+    background-color: rgba(47, 79, 79, 0.842);
+    height: 10dvh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav .logo h1 {
+    font-size: 40px;
+    color: white;
+}
+
+.nav .menu ul{
+    display: flex;
+}
+.nav .menu ul li{
+    margin-right: 0px;   
+    /* border: 1px solid white; */
+    height: 10dvh;
+    width: 100px;
+    padding: 10px 81px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s;
+    font-size: 20px;
+    font-weight: 400;
+    color: white;
+}
+.nav .menu ul li:hover,
+.nav .menu ul li:active {
+    background-color: goldenrod;
+}
+
+.nav .greeding p{
+    color: white;
+}
+
+.nav .greeding button {
+    color: white;
+    font-weight: bold;
+    transition: all 0.25s;
+}
+.nav .greeding button:hover {
+    color: goldenrod;
+    font-weight: bold;
+}

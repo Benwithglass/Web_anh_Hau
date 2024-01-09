@@ -23,6 +23,11 @@ import Payment from "./pages/payment/Payment";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Shop from "./pages/Shop/Shop";
 import {ToastContainer} from "react-toastify";
+import AddProducts from "./pages/Admin/AddProducts";
+import AllProduct from "./pages/Admin/AllProduct";
+import Admin from "./pages/Admin/Admin";
+import Accounts from "./pages/Admin/Accounts";
+import Dashboard from "./pages/Admin/Dashboard";
 
 const Layout = () => {
   return (
@@ -56,6 +61,12 @@ const router = createBrowserRouter(
       </Route>
       <Route path="/signup" element={<SignUp />}></Route>
       <Route path="/signin" element={<SignIn />}></Route>
+      <Route path="/admin" element={<Admin />}></Route>
+      <Route path="/admin/add-products" element={<AddProducts/>}></Route>
+      <Route path="/admin/all-products" element={<AllProduct/>}></Route>
+      <Route path="/admin/accounts" element={<Accounts/>}></Route>
+      <Route path="/admin/dashboard" element={<Dashboard/>}></Route>
+      
     </Route>
   )
 );

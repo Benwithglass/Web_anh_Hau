@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./SignIn.css";
 import { toast } from "react-toastify";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
@@ -172,14 +173,15 @@ const SignIn = () => {
                 >
                   Đăng Nhập
                 </button>
-                
-                <button
-                  type="submit"
-                  className="bg-yellow-500 text-black hover:bg-black hover:text-yellow-500 transition-all duration-300 font-bold"
-                >
-                  Đăng ký
-                </button>
-                <p>Chưa có tài khoản? </p>
+                <Link to={"/SignUp"}>
+                  <button 
+                    type="button"
+                    className="bg-yellow-500 text-black hover:bg-black hover:text-yellow-500 transition-all duration-300 font-bold"
+                  >
+                    Đăng ký
+                  </button>
+                  <p>Chưa có tài khoản? </p>
+                </Link>
               </div>
             </div>
           </div>
