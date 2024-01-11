@@ -29,15 +29,23 @@ const Footer = () => {
   };
   return (
     <div className="w-full bg-[#F5F5F3] py-20">
-      <div className="max-w-container mx-auto grid grid-cols-1 md:grid-cols-2  xl:grid-cols-6 px-4 gap-10">
+      <div className="max-w-container mx-auto grid grid-cols-1 md:grid-cols-2  xl:grid-cols-6 px-4 gap-3">
         <div className="col-span-2">
-          <FooterListTitle title=" More about Orebi Shop" />
+          <FooterListTitle title=" THÔNG TIN LIÊN HỆ" />
           <div className="flex flex-col gap-6">
             <p className="text-base w-full xl:w-[80%]">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim sint
-              ab ullam, numquam nesciunt in.
+              CÔNG TY TNHH ĐẦU TƯ VÀ PHÁT TRIỂN MINH LONG PHÁT
             </p>
-            <ul className="flex items-center gap-2">
+            <p className="text-base w-full xl:w-[80%]">
+              Đ/C: 72, Đường N14, KP7, Phường Thống Nhất, Thành phố Biên Hòa, Đồng Nai, Việt Nam
+            </p>
+            <p className="text-base w-full xl:w-[80%]">
+              Hotline: 0988329000
+            </p>
+            <p className="text-base w-full xl:w-[80%]">
+              Email: minhlongphat2020@gmail.com
+            </p>
+            {/* <ul className="flex items-center gap-2">
               <a
                 href="https://www.youtube.com/@reactjsBD"
                 target="_blank"
@@ -74,30 +82,27 @@ const Footer = () => {
                   <FaLinkedin />
                 </li>
               </a>
-            </ul>
+            </ul> */}
           </div>
         </div>
         <div>
-          <FooterListTitle title="Shop" />
+          <FooterListTitle title="SẢN PHẨM" />
           <ul className="flex flex-col gap-2">
             <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
-              Accesories
+              PALLET GỖ
             </li>
             <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
-              Clothes
+              DÂY ĐAI
             </li>
             <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
-              Electronics
+              MÀNG PE
             </li>
             <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
-              Home appliances
-            </li>
-            <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
-              New Arrivals
+              CÁC SP KHÁC
             </li>
           </ul>
         </div>
-        <div>
+        {/* <div>
           <FooterListTitle title="Your account" />
           <ul className="flex flex-col gap-2">
             <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
@@ -116,8 +121,8 @@ const Footer = () => {
               Payment Options
             </li>
           </ul>
-        </div>
-        <div className="col-span-2 flex flex-col items-center w-full px-4">
+        </div> */}
+        {/* <div className="col-span-2 flex flex-col items-center w-full px-4">
           <FooterListTitle title="Subscribe to our newsletter." />
           <div className="w-full">
             <p className="text-center mb-4">
@@ -164,7 +169,7 @@ const Footer = () => {
               imgSrc={paymentCard}
             />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

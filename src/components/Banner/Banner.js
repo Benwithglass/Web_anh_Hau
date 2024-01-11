@@ -105,21 +105,6 @@ const Banner = () => {
   return (
     <div className="w-full h-full bg-white">
       <Slider {...settings}>
-        {/* <Link to="/offer">
-          <div>
-            <Image imgSrc={bannerImgOne} />
-          </div>
-        </Link>
-        <Link to="/offer">
-          <div>
-            <Image imgSrc={bannerImgTwo} />
-          </div>
-        </Link>
-        <Link to="/offer">
-          <div>
-            <Image imgSrc={bannerImgThree} />
-          </div>
-        </Link> */}
         <Link to="">
           <div  className="w-full flex justify-center items-center">
             <Image imgSrc={bannerImgFour} />
