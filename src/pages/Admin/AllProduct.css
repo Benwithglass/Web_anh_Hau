@@ -8,10 +8,15 @@
         padding: 0;
         box-sizing: border-box;
     }
-    
-    .products .table {
+
+    .products .title {
         width: 100%;
     }
+
+    .products .title .title_head h1 {
+        color: white;
+    }
+
     
     .products .card {
         display: grid;
@@ -26,6 +31,7 @@
 
     .products .card .card_content {
         width: 100%;
+        background-color: rgba(236, 233, 233, 0.61);
         border: 1px solid white;
         padding: 20px 50px;
         border-radius: 20px;
@@ -107,4 +113,21 @@
         min-height: 356px;
         min-width: 687px;
     }
+
+    .card_footer button {
+        background-color: white;
+        border: 1px solid white;
+        color: green;
+        font-size: 18px;
+        padding: 10px 15px;
+        border-radius: 12px;
+        transition: all 0.5s;
+    }
+
+    .card_footer button:hover {
+        background-color: green;
+        border: 1px solid green;
+        color: white;
+    }
+
 }

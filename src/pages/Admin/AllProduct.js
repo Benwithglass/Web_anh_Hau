@@ -15,8 +15,8 @@ const AllProduct = () => {
     <div className="products">
       <div className='content'>
         <div className='addProduct'>
-          <div className='table'>
-            <div className='table_head text-center mt-16'>
+          <div className='title'>
+            <div className='title_head text-center mt-16'>
               <h1>Nhập Thông Tin</h1>
             </div>
             <form className='card mt-5'>
@@ -141,6 +141,11 @@ const AllProduct = () => {
                       <textarea>Điền thông tin sản phẩm...</textarea>
                     </div>
                   </div>
+                </div>
+                <div className='card_footer text-center'>
+                  <button type='submit' className='mt-10'>
+                    Thêm sản phẩm
+                  </button>
                 </div>
               </div>
             </form>
