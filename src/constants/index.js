@@ -11,6 +11,7 @@ import {
   newArrTwo,
   newArrThree,
   newArrFour,
+  daydai_1,
 } from "../assets/images/index";
 
 // =================== NavBarList Start here ====================
@@ -88,10 +89,10 @@ export const SplOfferData = [
 export const paginationItems = [
   {
     _id: 1001,
-    img: spfOne,
-    productName: "Cap for Boys",
+    img: daydai_1,
+    productName: "Dây đai màu",
     price: "35.00",
-    color: "Blank and White",
+    color: "Đỏ và vàng",
     badge: true,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },

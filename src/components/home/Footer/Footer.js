@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { FaFacebook, FaYoutube, FaLinkedin, FaGithub } from "react-icons/fa";
 import FooterListTitle from "./FooterListTitle";
-import { paymentCard } from "../../../assets/images";
-import Image from "../../designLayouts/Image";
+import Lottie from 'lottie-react';
+import delivery_truck from "../../../assets/animations/delivery_truck.json";
 
 const Footer = () => {
   const [emailInfo, setEmailInfo] = useState("");
@@ -27,10 +25,16 @@ const Footer = () => {
       setEmailInfo("");
     }
   };
+
+  // const animationStyle = () => {
+  //   width: '300px',
+    
+  // };
+
   return (
     <div className="w-full bg-[#F5F5F3] py-20">
       <div className="max-w-container mx-auto grid grid-cols-1 md:grid-cols-2  xl:grid-cols-6 px-4 gap-3">
-        <div className="col-span-2">
+        <div className="col-start-1 col-span-2">
           <FooterListTitle title=" THÔNG TIN LIÊN HỆ" />
           <div className="flex flex-col gap-6">
             <p className="text-base w-full xl:w-[80%]">
@@ -101,6 +105,17 @@ const Footer = () => {
               CÁC SP KHÁC
             </li>
           </ul>
+        </div>
+        <div className="logo relative">
+          <div className="logo-content absolute -bottom-40 left-10">
+            <Lottie
+              className="col-start-4 col-span-6"
+              style={{width:'600px', height:'600px'}}
+              animationData={delivery_truck}
+              loop={true}
+              autoPlay={true}
+            />
+          </div>
         </div>
         {/* <div>
           <FooterListTitle title="Your account" />

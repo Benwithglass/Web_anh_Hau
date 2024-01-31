@@ -1,0 +1,110 @@
+@media only screen and (min-width:1024px) {
+    .products {
+        background-color: rgba(47, 79, 79, 0.534);
+        height: 100dvh;
+        width: 100dvw;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .products .table {
+        width: 100%;
+    }
+    
+    .products .card {
+        display: grid;
+        align-items: center;
+        /* margin: 0 auto; */
+        width: 100%;
+
+        
+    }
+
+
+
+    .products .card .card_content {
+        width: 100%;
+        border: 1px solid white;
+        padding: 20px 50px;
+        border-radius: 20px;
+    }
+    
+    
+    
+    .products .card .card-body {
+        width: 100%;
+    }
+    
+    .card .left {
+        font-size: 19.5px;
+    }
+
+    .products .middle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 307px;
+        min-width: 409px;
+        font-size: 18px;
+        
+    }
+    
+    .products .middle #pic {
+        min-height: 100%;
+        min-width: 100%;
+    }
+    
+    .products .middle #pic .pic_pg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    
+        min-height: 307px;
+        min-width: 409px;
+        border: 2px dashed #808080;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.25s;
+    }
+    
+    .products .middle #pic .pic_pg img {
+        max-width: 307px;
+        max-height: 409px;
+    }
+    
+    .products .middle #pic .pic_pg:hover {
+        border: 2px dashed white; 
+    }
+    
+    .products .middle #pic .pic_pg p {
+        transition: all 0.25s;
+    }
+    
+    .products .middle #pic .pic_pg:hover p {
+        color: white;
+    }
+    
+    .products .middle #pic .pic_bottom {
+        margin-top: 10px;
+        background-color: blueviolet;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    
+    .products .right {
+        font-size: 18px;
+    }
+
+    .products .right textarea {
+        /* display: flex; */
+        overflow: scroll;
+        min-height: 356px;
+        min-width: 687px;
+    }
+}

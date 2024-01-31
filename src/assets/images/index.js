@@ -59,10 +59,12 @@ import hinh_nen_sign_up from "../images/hinh_nen_sign_up.webp";
 // hình nền SignIn
 import hinh_nen_sign_in from "../images/hinh_nen_sign_in.webp";
 
+// animations
+import delivery_truck from "../animations/delivery_truck.json";
+
 // ============== Products End here ======================
 import paymentCard from "./payment.png";
 import emptyCart from "../images/emptyCart.png";
-
 
 export {
   logo,
@@ -124,6 +126,10 @@ export {
 
   // hình nền SignIn
   hinh_nen_sign_in,
+
+  // animations
+  delivery_truck,
+
   // ===================== Products End here ==============
   paymentCard,
   emptyCart,
