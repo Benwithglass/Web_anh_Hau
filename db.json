@@ -25,5 +25,30 @@
       "address": "72 N14, Thong Nhat, Bien Hoa, Dong Nai"
     }
   ],
-  "product": []
+  "product": [
+    {
+      "id": "5bd1",
+      "productName": "Dây đai nhựa pet caro",
+      "productCate": "Dây đai",
+      "productNum": "21",
+      "productDate": "2024-02-03T13:24",
+      "productDecs": "Dây đai Minh Long Phát\n\nXuất xứ: Việt Nam\n\nKhối lượng: 20 kg\n\nBề mặt: caro\n\nĐộ dày: 0.8 -1.0 mm\n\nChiều rộng: 16 mm\n\nMàu sắc: xanh lá"
+    },
+    {
+      "id": "bdad",
+      "productName": "Dây đai nhựa pp",
+      "productCate": "Dây đai",
+      "productNum": "52",
+      "productDate": "2024-02-04T16:25",
+      "productDecs": "Model: DPHL\n\nXuất xứ: Minh Long Phát\n\nChiều rộng: 12mm, 15mm\n\nĐộ dày: 0.6 – 1.0 mm\n\nMàu sắc: Vàng, đỏ, xanh, trắng"
+    },
+    {
+      "id": "bc34",
+      "productName": "Dây đai nhựa pet trơn",
+      "productCate": "Dây đai",
+      "productNum": "43",
+      "productDate": "2024-02-03T17:38",
+      "productDecs": "Xuất xứ: Dây Đai Minh Long Phát\n\nQuy cách: 12mm – 16mm – 19mm – 25mm\n\nKhối lượng: 20 kg\n\nBề mặt: Trơn\n\nMàu sắc: Xanh lá, đen"
+    }
+  ]
 }

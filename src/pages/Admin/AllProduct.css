@@ -3,7 +3,8 @@
         background-color: rgba(47, 79, 79, 0.534);
         height: 100dvh;
         width: 100dvw;
-        overflow: hidden;
+        overflow: scroll;
+        scroll-behavior: smooth;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -119,6 +120,7 @@
         border: 1px solid white;
         color: green;
         font-size: 18px;
+        font-weight: 600;
         padding: 10px 15px;
         border-radius: 12px;
         transition: all 0.5s;
@@ -129,5 +131,17 @@
         border: 1px solid green;
         color: white;
     }
+
+    /* list sp */
+    .products .table {
+        width: 100%;
+    }
+
+    .products .table h1{
+        color: white;
+    }
+
+
+    /* end list sp */
 
 }

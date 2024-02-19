@@ -1,0 +1,11 @@
+.product_list {
+    width: 100%;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product_list .list_container {
+    width: 60%;
+}
